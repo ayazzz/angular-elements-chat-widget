@@ -3,24 +3,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { Injector, NgModule } from '@angular/core'
 
 import { createCustomElement } from '@angular/elements'
-import { ChatModule, ChatWidgetComponent, ChatConfigComponent } from './chat/'
+import { RegisterModule, ChatWidgetComponent } from './register'
 
 @NgModule({
-  imports: [BrowserModule, BrowserAnimationsModule, ChatModule],
-  exports: [ChatModule]
+  imports: [BrowserModule, BrowserAnimationsModule, RegisterModule],
+  exports: [RegisterModule]
 })
 export class ElementModule {
   constructor(private injector: Injector) {
   }
 
   ngDoBootstrap() {
-    const chatConfig = <any>createCustomElement(ChatConfigComponent, {
+    const registerWidget = <any>createCustomElement(ChatWidgetComponent, {
       injector: this.injector,
     })
-    const chatWidget = <any>createCustomElement(ChatWidgetComponent, {
-      injector: this.injector,
-    })
-    customElements.define('chat-config', chatConfig)
-    customElements.define('chat-widget', chatWidget)
+    customElements.define('leal-register-widget', registerWidget)
   }
 }

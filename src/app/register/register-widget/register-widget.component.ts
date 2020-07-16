@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core'
+import { Component, ElementRef, HostListener, Input, OnInit, ViewChild, HostBinding } from '@angular/core'
 import { Subject } from 'rxjs'
 import { fadeIn, fadeInOut } from '../animations'
 
@@ -24,14 +24,27 @@ const rand = max => Math.floor(Math.random() * max)
 const getRandomMessage = () => randomMessages[rand(randomMessages.length)]
 
 @Component({
-  selector: 'chat-widget',
-  templateUrl: './chat-widget.component.html',
-  styleUrls: ['./chat-widget.component.css'],
+  selector: 'register-widget',
+  templateUrl: './register-widget.component.html',
+  styleUrls: ['./register-widget.component.css'],
   animations: [fadeInOut, fadeIn],
 })
-export class ChatWidgetComponent implements OnInit {
+export class RegisterWidgetComponent implements OnInit {
   @ViewChild('bottom') bottom: ElementRef
-  @Input() public theme: 'blue' | 'grey' | 'red' = 'blue'
+  @Input()
+  public theme: 'blue' | 'grey' | 'red' = 'blue'
+
+  @Input()
+  @HostBinding('data-uid')
+  public uid: string;
+
+  @Input()
+  @HostBinding('data-cid')
+  public cid: number; //comercio id
+
+  @Input()
+  @HostBinding('data-sid')
+  public sid: number; //sucursal id
 
   public _visible = false
 

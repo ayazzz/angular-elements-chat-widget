@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChatWidgetComponent } from './chat-widget.component';
+import { ChatWidgetComponent } from './register-widget.component';
 
 describe('ChatWidgetComponent', () => {
   let component: ChatWidgetComponent;

@@ -3,7 +3,7 @@ import { Component } from '@angular/core'
 @Component({
   selector: 'app-root',
   template: `
-    <chat-widget [theme]="theme"></chat-widget>
+    <leal-register-widget [theme]="theme"></leal-register-widget>
   `,
 })
 export class AppComponent {

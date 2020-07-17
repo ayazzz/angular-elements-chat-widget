@@ -9,7 +9,7 @@ import { RegisterModule, RegisterWidgetComponent } from './register'
   imports: [BrowserModule, BrowserAnimationsModule, RegisterModule],
   exports: [RegisterModule]
 })
-export class ElementModule {
+export class AppModule {
   constructor(private injector: Injector) {
   }
 
